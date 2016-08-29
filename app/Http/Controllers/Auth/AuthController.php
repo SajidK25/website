@@ -5,10 +5,15 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    protected $redirectPath = '/admin';
+
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -20,7 +25,7 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers;
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
      * Create a new authentication controller instance.
@@ -60,5 +65,32 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function postLogin(LoginRequest $request)
+    {
+        if (Auth::attempt([
+            'email'    => $request->get('email'),
+            'password' => $request->get('password'),
+        ], $request->get('remember'))) {
+            return redirect()
+                ->intended('/admin');
+
+        }
+        return redirect()
+            ->back()
+            ->withInput();
+
+    }
+    /**
+     * Logout.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/auth/login');
+
     }
 }

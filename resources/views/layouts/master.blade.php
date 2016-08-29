@@ -41,7 +41,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
   <header class="main-header">
   <!-- Logo -->
-  <a href="index2.html" class="logo">
+  <a href="{{  url('/admin')  }}" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>A</b>LT</span>
     <!-- logo for regular state and mobile devices -->
@@ -82,6 +82,9 @@
 <!-- Bootstrap 3.3.6 -->
 <script src="{{ url('admin_panel/bootstrap/js/bootstrap.min.js') }}"></script>
 <!-- Morris.js charts -->
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="{{ url('admin_panel/plugins/morris/morris.min.js') }}"></script>
 <!-- Sparkline -->
@@ -108,5 +111,6 @@
 <script src="{{ url('admin_panel/dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ url('admin_panel/dist/js/demo.js') }}"></script>
+@yield('scripts')
 </body>
 </html>
