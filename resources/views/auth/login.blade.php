@@ -32,32 +32,37 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
+    <?php //var_dump($_POST); ?>
 
-    <form action="{{ url('auth/login') }}" method="post">
-      {{  csrf_field()  }}
+      {!! Form::open(['url' => 'auth/login', 'class' => 'form-horizontal', 'role' => 'form']) !!}
+
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        {!! Form::email('email', null,array('class'=>'form-control', 'placeholder'=>'Email'))  !!}
+
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        {!!  Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password'))   !!}
+
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
-            <label>
-              <input type="checkbox"> Remember Me
-            </label>
+              {!! Form::checkbox('remember','Remember Me') !!}
+              {!! Form::label('remember','Remember Me') !!}
+
+
           </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          {!! Form::submit('SignIn',['class'=>'btn btn-primary btn-block btn-flat"'])  !!}
+
         </div>
         <!-- /.col -->
       </div>
-    </form>
+    {!! Form::close() !!}
 
     <div class="social-auth-links text-center">
       <p>- OR -</p>

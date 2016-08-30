@@ -64,14 +64,14 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p class="text-danger"><a href="{{ route('error::checkout') }}"> Back to Home</a></p>
+                <p class="text-danger"><a href="#"> Back to Home</a></p>
             </div>
         </div>
     </div>
     <div class="footer-copyright" style="vertical-align: bottom;">
         <div class="row">
             <div class="col-md-12">
-                <p><strong>Copyright &copy; 2016 <a href="http://rasel.ninja" target="_blank">Md Rasel Ahmed</a>.</strong> All rights reserved.</p>
+                <p><strong>Copyright &copy; 2016 <a href="#" target="_blank">Sajid<//a>.</strong> All rights reserved.</p>
             </div>
         </div>
     </div>
