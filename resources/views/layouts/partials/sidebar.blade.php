@@ -11,7 +11,7 @@
     </li>
 
      <li>
-      <a href="{{  url('/admin/facalty')  }}">
+      <a href="{{  url('/admin/faculty')  }}">
         <i class="fa fa-graduation-cap"></i> <span>Facalty</span>
 
       </a>

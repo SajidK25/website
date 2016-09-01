@@ -18,6 +18,6 @@ Route::get('auth/logout','Auth\AuthController@getLogout');
 
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
   Route::get('/','Admin\DashboardController@index');
-  Route::get('/faculty','Admin\DashboardController@index');
+  Route::resource('/faculty','Admin\FacultyController');
 
 });
